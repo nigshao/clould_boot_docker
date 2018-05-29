@@ -1,0 +1,28 @@
+#这里的spring.application.name变成了标记服务的名字，在众多服务是唯一，当然在集群中是一个
+spring:
+  application:
+    name: ribbon-consumer
+server:
+  port: 9090
+security:
+   basic:
+      enabled: true
+   user:
+      name: admin
+      password: 123456
+#开启熔断器
+feign:
+    hystrix:
+      enabled: true  
+      #项目启动,第一次访问时间太长,会因为访问超时进入熔断器.可以将熔断器时间加长,这里设置为5秒
+      command:
+        default:
+           execution:
+              timeout:
+                  enabled: false
+          
+eureka:
+  client: 
+    serviceUrl:
+      #defaultZone: http://${security.user.name}:${security.user.password}@localhost:8085/eureka/
+      defaultZone:  http://${security.user.name}:${security.user.password}@localhost:8085/eureka/,http://${security.user.name}:${security.user.password}@localhost:8086/eureka/,http://${security.user.name}:${security.user.password}@localhost:8087/eureka/

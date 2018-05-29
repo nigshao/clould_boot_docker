@@ -1,0 +1,138 @@
+server:
+  port: 8085
+spring:
+  profiles: peer
+eureka:
+  instance:
+    hostname: peer
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://admin:admin@peer1:8086/eureka/,http://admin:admin@peer2:8087/eureka/
+  server:
+    # 关闭自我保护,自我保护是在出现网络分区，丢失过多客户端，注册中心不会将其删除,默认为true
+    enable-self-preservation: false
+    # 清理服务器,清理无效节点的间隔时间
+    eviction-interval-timer-in-ms: 60000
+
+# 日志输出
+logging:
+  file: log-tms-eureka1/logger.log
+  level:
+    org.springframework.web: DEBUG
+
+# 关闭程序
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: true
+
+# 关闭项目的安全验证
+security:
+  user:
+    name: admin
+    password: admin
+    role: SUPERUSER
+
+# 配置关闭程序的路径
+management:
+  context-path: /tms-eureka
+  security:
+    roles: SUPERUSER #角色
+  port: 8085 # 指定端口
+  address: 127.0.0.1 # 指定地址
+
+---
+
+server:
+  port: 8086
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://admin:admin@peer:8085/eureka/,http://admin:admin@peer2:8087/eureka/
+  server:
+    # 关闭自我保护
+    enable-self-preservation: false
+    # 清理服务器
+    eviction-interval-timer-in-ms: 60000
+
+# 日志输出
+logging:
+  file: log-tms-eureka1/logger.log
+  level:
+    org.springframework.web: DEBUG
+
+# 关闭程序
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: true
+
+# 关闭项目的安全验证
+security:
+  user:
+    name: admin
+    password: admin
+    role: SUPERUSER
+
+# 配置关闭程序的路径
+management:
+  context-path: /tms-eureka1
+  security:
+    roles: SUPERUSER #角色
+  port: 8086 # 指定端口
+  address: 127.0.0.1 # 指定地址
+  
+---
+
+server:
+  port: 8087
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://admin:admin@peer:8085/eureka/,http://admin:admin@peer1:8086/eureka/
+  server:
+    # 关闭自我保护
+    enable-self-preservation: false
+    # 清理服务器
+    eviction-interval-timer-in-ms: 60000
+
+# 日志输出
+logging:
+  file: log-tms-eureka2/logger.log
+  level:
+    org.springframework.web: DEBUG
+
+# 关闭程序
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: true
+
+# 关闭项目的安全验证
+security:
+  user:
+    name: admin
+    password: admin
+    role: SUPERUSER
+
+# 配置关闭程序的路径
+management:
+  context-path: /tms-eureka2
+  security:
+    roles: SUPERUSER #角色
+  port: 8087 # 指定端口
+  address: 127.0.0.1 # 指定地址

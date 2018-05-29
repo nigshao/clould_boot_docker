@@ -1,0 +1,18 @@
+#这里的spring.application.name变成了标记服务的名字，在众多服务是唯一，当然在集群中是一个
+spring:
+   application:
+        name:  say-hello
+server:
+   port:  8082
+security:
+   basic:
+      enabled: true
+   user:
+      name: admin
+      password: 123456 
+eureka:
+   client:  
+        #register-with-eureka:  false  实例是否在eureka服务器上注册自己的信息以供其他服务发现，默认为true
+        #fetch-registry:  false  此客户端是否获取eureka服务器注册表上的注册信息，默认为true
+        serviceUrl:
+          defaultZone:  http://${security.user.name}:${security.user.password}@localhost:8085/eureka/,http://${security.user.name}:${security.user.password}@localhost:8086/eureka/,http://${security.user.name}:${security.user.password}@localhost:8087/eureka/
