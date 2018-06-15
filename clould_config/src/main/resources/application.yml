@@ -1,26 +1,13 @@
-#这里的springcloud的配置中心
-spring:
-   application:
-        name: config-server  #配置中心的服务名称
-server:
-   port:  9092
-   # git管理配置
+server :
+  port: 8888
 spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/fengzp/config/ #git仓库地址
-          searchPaths: demo* #搜索路径
-          username: nigshao
-          password: nsb539789
-security:
-   basic:
-      enabled: true
-   user:
-      name: admin
-      password: 123456 
-eureka:
-   client:  
-        serviceUrl:
-          defaultZone:  http://${security.user.name}:${security.user.password}@localhost:8085/eureka/,http://${security.user.name}:${security.user.password}@localhost:8086/eureka/,http://${security.user.name}:${security.user.password}@localhost:8087/eureka/
+        git:   
+          uri: file://Users/whthomas/config-repo
+  application:
+    name: configserver
+  cloud:
+    config:
+      uri:  http://localhost:8888

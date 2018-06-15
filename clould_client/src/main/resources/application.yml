@@ -1,7 +1,14 @@
 #这里的spring.application.name变成了标记服务的名字，在众多服务是唯一，当然在集群中是一个
 spring:
    application:
-        name:  say-hello
+       name:  say-hello
+   datasource:
+       url: jdbc:mysql://192.168.1.241:3306/weiyin?useUnicode=true&amp;characterEncoding=utf-8
+       password: 12qwaszx
+       username: vyindai
+       driver-class-name: com.mysql.jdbc.Driver
+#mybatis:
+   #config-location: classpath:mapper/*.xml
 server:
    port:  8084
 security:

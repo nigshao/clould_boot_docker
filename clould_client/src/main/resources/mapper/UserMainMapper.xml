@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ns.clould.mapper.UserMainMapper" >
+  <resultMap id="BaseResultMap" type="com.ns.clould.bean.UserMain" >
+    <id column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="nickName" property="nickname" jdbcType="VARCHAR" />
+    <result column="realName" property="realname" jdbcType="VARCHAR" />
+    <result column="idCardNo" property="idcardno" jdbcType="VARCHAR" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="payPassword" property="paypassword" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="registerTime" property="registertime" jdbcType="TIMESTAMP" />
+    <result column="roles" property="roles" jdbcType="SMALLINT" />
+    <result column="cash" property="cash" jdbcType="DECIMAL" />
+    <result column="frozenWithDrawCash" property="frozenwithdrawcash" jdbcType="DECIMAL" />
+    <result column="frozenBiddingCash" property="frozenbiddingcash" jdbcType="DECIMAL" />
+    <result column="idVerifyLimit" property="idverifylimit" jdbcType="SMALLINT" />
+    <result column="portrait" property="portrait" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="SMALLINT" />
+    <result column="forbidStatus" property="forbidstatus" jdbcType="SMALLINT" />
+    <result column="albumCapacity" property="albumcapacity" jdbcType="SMALLINT" />
+    <result column="securityLevel" property="securitylevel" jdbcType="SMALLINT" />
+    <result column="weiboUId" property="weibouid" jdbcType="VARCHAR" />
+    <result column="weiboAccessToken" property="weiboaccesstoken" jdbcType="VARCHAR" />
+    <result column="qqUId" property="qquid" jdbcType="VARCHAR" />
+    <result column="qqAccessToken" property="qqaccesstoken" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="INTEGER" />
+    <result column="staffId" property="staffid" jdbcType="INTEGER" />
+    <result column="userCode" property="usercode" jdbcType="VARCHAR" />
+    <result column="referee" property="referee" jdbcType="VARCHAR" />
+    <result column="companyseq" property="companyseq" jdbcType="INTEGER" />
+    <result column="tellerseq" property="tellerseq" jdbcType="INTEGER" />
+    <result column="wrongPassword" property="wrongpassword" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="experienceCash" property="experiencecash" jdbcType="DECIMAL" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="keyType" property="keytype" jdbcType="VARCHAR" />
+    <result column="chanalCode" property="chanalcode" jdbcType="INTEGER" />
+    <result column="hf_login_id" property="hfLoginId" jdbcType="VARCHAR" />
+    <result column="openAccountTime" property="openaccounttime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      userId, email, nickName, realName, idCardNo, passwd, payPassword, mobile, city, registerTime, 
+      roles, cash, frozenWithDrawCash, frozenBiddingCash, idVerifyLimit, portrait, status, 
+      forbidStatus, albumCapacity, securityLevel, weiboUId, weiboAccessToken, qqUId, qqAccessToken, 
+      origin, staffId, userCode, referee, companyseq, tellerseq, wrongPassword, level, 
+      experienceCash, token, keyType, chanalCode, hf_login_id, openAccountTime
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    userId,email,nickName,realName,idCardNo,passwd,payPassword,mobile,city,registerTime,roles,cash,frozenWithDrawCash,frozenBiddingCash,idVerifyLimit,portrait,status,forbidStatus,albumCapacity,securityLevel,weiboUId,weiboAccessToken,qqUId,qqAccessToken,origin,staffId,userCode,referee,companyseq,tellerseq,wrongPassword,level,experienceCash,token,keyType,chanalCode,hf_login_id,openAccountTime
+    from user_main
+    where userId = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_main
+    where userId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ns.clould.bean.UserMain" >
+    insert into user_main (userId, email, nickName, 
+      realName, idCardNo, passwd, 
+      payPassword, mobile, city, 
+      registerTime, roles, cash, 
+      frozenWithDrawCash, frozenBiddingCash, 
+      idVerifyLimit, portrait, status, 
+      forbidStatus, albumCapacity, securityLevel, 
+      weiboUId, weiboAccessToken, qqUId, 
+      qqAccessToken, origin, staffId, 
+      userCode, referee, companyseq, 
+      tellerseq, wrongPassword, level, 
+      experienceCash, token, keyType, 
+      chanalCode, hf_login_id, openAccountTime
+      )
+    values (#{userid,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{idcardno,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
+      #{paypassword,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{registertime,jdbcType=TIMESTAMP}, #{roles,jdbcType=SMALLINT}, #{cash,jdbcType=DECIMAL}, 
+      #{frozenwithdrawcash,jdbcType=DECIMAL}, #{frozenbiddingcash,jdbcType=DECIMAL}, 
+      #{idverifylimit,jdbcType=SMALLINT}, #{portrait,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}, 
+      #{forbidstatus,jdbcType=SMALLINT}, #{albumcapacity,jdbcType=SMALLINT}, #{securitylevel,jdbcType=SMALLINT}, 
+      #{weibouid,jdbcType=VARCHAR}, #{weiboaccesstoken,jdbcType=VARCHAR}, #{qquid,jdbcType=VARCHAR}, 
+      #{qqaccesstoken,jdbcType=VARCHAR}, #{origin,jdbcType=INTEGER}, #{staffid,jdbcType=INTEGER}, 
+      #{usercode,jdbcType=VARCHAR}, #{referee,jdbcType=VARCHAR}, #{companyseq,jdbcType=INTEGER}, 
+      #{tellerseq,jdbcType=INTEGER}, #{wrongpassword,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
+      #{experiencecash,jdbcType=DECIMAL}, #{token,jdbcType=VARCHAR}, #{keytype,jdbcType=VARCHAR}, 
+      #{chanalcode,jdbcType=INTEGER}, #{hfLoginId,jdbcType=VARCHAR}, #{openaccounttime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ns.clould.bean.UserMain" >
+    insert into user_main
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="nickname != null" >
+        nickName,
+      </if>
+      <if test="realname != null" >
+        realName,
+      </if>
+      <if test="idcardno != null" >
+        idCardNo,
+      </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
+      <if test="paypassword != null" >
+        payPassword,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="registertime != null" >
+        registerTime,
+      </if>
+      <if test="roles != null" >
+        roles,
+      </if>
+      <if test="cash != null" >
+        cash,
+      </if>
+      <if test="frozenwithdrawcash != null" >
+        frozenWithDrawCash,
+      </if>
+      <if test="frozenbiddingcash != null" >
+        frozenBiddingCash,
+      </if>
+      <if test="idverifylimit != null" >
+        idVerifyLimit,
+      </if>
+      <if test="portrait != null" >
+        portrait,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="forbidstatus != null" >
+        forbidStatus,
+      </if>
+      <if test="albumcapacity != null" >
+        albumCapacity,
+      </if>
+      <if test="securitylevel != null" >
+        securityLevel,
+      </if>
+      <if test="weibouid != null" >
+        weiboUId,
+      </if>
+      <if test="weiboaccesstoken != null" >
+        weiboAccessToken,
+      </if>
+      <if test="qquid != null" >
+        qqUId,
+      </if>
+      <if test="qqaccesstoken != null" >
+        qqAccessToken,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="staffid != null" >
+        staffId,
+      </if>
+      <if test="usercode != null" >
+        userCode,
+      </if>
+      <if test="referee != null" >
+        referee,
+      </if>
+      <if test="companyseq != null" >
+        companyseq,
+      </if>
+      <if test="tellerseq != null" >
+        tellerseq,
+      </if>
+      <if test="wrongpassword != null" >
+        wrongPassword,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="experiencecash != null" >
+        experienceCash,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="keytype != null" >
+        keyType,
+      </if>
+      <if test="chanalcode != null" >
+        chanalCode,
+      </if>
+      <if test="hfLoginId != null" >
+        hf_login_id,
+      </if>
+      <if test="openaccounttime != null" >
+        openAccountTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null" >
+        #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="paypassword != null" >
+        #{paypassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null" >
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roles != null" >
+        #{roles,jdbcType=SMALLINT},
+      </if>
+      <if test="cash != null" >
+        #{cash,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenwithdrawcash != null" >
+        #{frozenwithdrawcash,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenbiddingcash != null" >
+        #{frozenbiddingcash,jdbcType=DECIMAL},
+      </if>
+      <if test="idverifylimit != null" >
+        #{idverifylimit,jdbcType=SMALLINT},
+      </if>
+      <if test="portrait != null" >
+        #{portrait,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="forbidstatus != null" >
+        #{forbidstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="albumcapacity != null" >
+        #{albumcapacity,jdbcType=SMALLINT},
+      </if>
+      <if test="securitylevel != null" >
+        #{securitylevel,jdbcType=SMALLINT},
+      </if>
+      <if test="weibouid != null" >
+        #{weibouid,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboaccesstoken != null" >
+        #{weiboaccesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="qquid != null" >
+        #{qquid,jdbcType=VARCHAR},
+      </if>
+      <if test="qqaccesstoken != null" >
+        #{qqaccesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=INTEGER},
+      </if>
+      <if test="staffid != null" >
+        #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="usercode != null" >
+        #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="referee != null" >
+        #{referee,jdbcType=VARCHAR},
+      </if>
+      <if test="companyseq != null" >
+        #{companyseq,jdbcType=INTEGER},
+      </if>
+      <if test="tellerseq != null" >
+        #{tellerseq,jdbcType=INTEGER},
+      </if>
+      <if test="wrongpassword != null" >
+        #{wrongpassword,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="experiencecash != null" >
+        #{experiencecash,jdbcType=DECIMAL},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="keytype != null" >
+        #{keytype,jdbcType=VARCHAR},
+      </if>
+      <if test="chanalcode != null" >
+        #{chanalcode,jdbcType=INTEGER},
+      </if>
+      <if test="hfLoginId != null" >
+        #{hfLoginId,jdbcType=VARCHAR},
+      </if>
+      <if test="openaccounttime != null" >
+        #{openaccounttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ns.clould.bean.UserMain" >
+    update user_main
+    <set >
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        nickName = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realName = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null" >
+        idCardNo = #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="paypassword != null" >
+        payPassword = #{paypassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null" >
+        registerTime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roles != null" >
+        roles = #{roles,jdbcType=SMALLINT},
+      </if>
+      <if test="cash != null" >
+        cash = #{cash,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenwithdrawcash != null" >
+        frozenWithDrawCash = #{frozenwithdrawcash,jdbcType=DECIMAL},
+      </if>
+      <if test="frozenbiddingcash != null" >
+        frozenBiddingCash = #{frozenbiddingcash,jdbcType=DECIMAL},
+      </if>
+      <if test="idverifylimit != null" >
+        idVerifyLimit = #{idverifylimit,jdbcType=SMALLINT},
+      </if>
+      <if test="portrait != null" >
+        portrait = #{portrait,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="forbidstatus != null" >
+        forbidStatus = #{forbidstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="albumcapacity != null" >
+        albumCapacity = #{albumcapacity,jdbcType=SMALLINT},
+      </if>
+      <if test="securitylevel != null" >
+        securityLevel = #{securitylevel,jdbcType=SMALLINT},
+      </if>
+      <if test="weibouid != null" >
+        weiboUId = #{weibouid,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboaccesstoken != null" >
+        weiboAccessToken = #{weiboaccesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="qquid != null" >
+        qqUId = #{qquid,jdbcType=VARCHAR},
+      </if>
+      <if test="qqaccesstoken != null" >
+        qqAccessToken = #{qqaccesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=INTEGER},
+      </if>
+      <if test="staffid != null" >
+        staffId = #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="usercode != null" >
+        userCode = #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="referee != null" >
+        referee = #{referee,jdbcType=VARCHAR},
+      </if>
+      <if test="companyseq != null" >
+        companyseq = #{companyseq,jdbcType=INTEGER},
+      </if>
+      <if test="tellerseq != null" >
+        tellerseq = #{tellerseq,jdbcType=INTEGER},
+      </if>
+      <if test="wrongpassword != null" >
+        wrongPassword = #{wrongpassword,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="experiencecash != null" >
+        experienceCash = #{experiencecash,jdbcType=DECIMAL},
+      </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="keytype != null" >
+        keyType = #{keytype,jdbcType=VARCHAR},
+      </if>
+      <if test="chanalcode != null" >
+        chanalCode = #{chanalcode,jdbcType=INTEGER},
+      </if>
+      <if test="hfLoginId != null" >
+        hf_login_id = #{hfLoginId,jdbcType=VARCHAR},
+      </if>
+      <if test="openaccounttime != null" >
+        openAccountTime = #{openaccounttime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ns.clould.bean.UserMain" >
+    update user_main
+    set email = #{email,jdbcType=VARCHAR},
+      nickName = #{nickname,jdbcType=VARCHAR},
+      realName = #{realname,jdbcType=VARCHAR},
+      idCardNo = #{idcardno,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR},
+      payPassword = #{paypassword,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      registerTime = #{registertime,jdbcType=TIMESTAMP},
+      roles = #{roles,jdbcType=SMALLINT},
+      cash = #{cash,jdbcType=DECIMAL},
+      frozenWithDrawCash = #{frozenwithdrawcash,jdbcType=DECIMAL},
+      frozenBiddingCash = #{frozenbiddingcash,jdbcType=DECIMAL},
+      idVerifyLimit = #{idverifylimit,jdbcType=SMALLINT},
+      portrait = #{portrait,jdbcType=INTEGER},
+      status = #{status,jdbcType=SMALLINT},
+      forbidStatus = #{forbidstatus,jdbcType=SMALLINT},
+      albumCapacity = #{albumcapacity,jdbcType=SMALLINT},
+      securityLevel = #{securitylevel,jdbcType=SMALLINT},
+      weiboUId = #{weibouid,jdbcType=VARCHAR},
+      weiboAccessToken = #{weiboaccesstoken,jdbcType=VARCHAR},
+      qqUId = #{qquid,jdbcType=VARCHAR},
+      qqAccessToken = #{qqaccesstoken,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=INTEGER},
+      staffId = #{staffid,jdbcType=INTEGER},
+      userCode = #{usercode,jdbcType=VARCHAR},
+      referee = #{referee,jdbcType=VARCHAR},
+      companyseq = #{companyseq,jdbcType=INTEGER},
+      tellerseq = #{tellerseq,jdbcType=INTEGER},
+      wrongPassword = #{wrongpassword,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      experienceCash = #{experiencecash,jdbcType=DECIMAL},
+      token = #{token,jdbcType=VARCHAR},
+      keyType = #{keytype,jdbcType=VARCHAR},
+      chanalCode = #{chanalcode,jdbcType=INTEGER},
+      hf_login_id = #{hfLoginId,jdbcType=VARCHAR},
+      openAccountTime = #{openaccounttime,jdbcType=TIMESTAMP}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>
