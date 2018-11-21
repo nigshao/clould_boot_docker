@@ -9,6 +9,7 @@
       registerWithEureka: true
       fetchRegistry: false
       serviceUrl:
+        #admin:admin 连接注册中心的用户名 密码；peer ：配置在host文件种的主机地址127.0.0.1
         defaultZone: http://admin:admin@peer1:8086/eureka/,http://admin:admin@peer2:8087/eureka/
     server:
       # 关闭自我保护
@@ -42,4 +43,3 @@
       roles: SUPERUSER #角色
     port: 8085 # 指定端口
     address: 127.0.0.1 # 指定地址
-
